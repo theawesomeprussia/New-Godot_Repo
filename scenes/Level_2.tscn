@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d03gprqjnpw1p"]
+
+[ext_resource type="Texture2D" uid="uid://7i2fflcio2c5" path="res://art/underwater cave level 2.png" id="1_1d4r2"]
+
+[node name="Level_2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1d4r2")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwylq7ca118ep"]
+
+[ext_resource type="Texture2D" uid="uid://dc7yu0w1es1lr" path="res://art/jungle temple level 1.png" id="1_gi0o7"]
+[ext_resource type="PackedScene" uid="uid://ch162g7lbjb4v" path="res://scenes/player.tscn" id="2_n213y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_gi0o7")
+
+[node name="Player" parent="." instance=ExtResource("2_n213y")]
