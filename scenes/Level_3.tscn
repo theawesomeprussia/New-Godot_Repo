@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cruukm2ep5t7h"]
+[gd_scene load_steps=7 format=3 uid="uid://cruukm2ep5t7h"]
 
 [ext_resource type="Script" path="res://scripts/Level_3.gd" id="1_7qrim"]
 [ext_resource type="Texture2D" uid="uid://ns3jn01slmnn" path="res://art/lava red level 3.png" id="1_bypo7"]
 [ext_resource type="PackedScene" uid="uid://ch162g7lbjb4v" path="res://scenes/player.tscn" id="3_oopu7"]
+[ext_resource type="PackedScene" uid="uid://cse3ik44yfaod" path="res://scenes/ally_new.tscn" id="4_hrm23"]
+[ext_resource type="PackedScene" uid="uid://21q7b3ih3mvr" path="res://scenes/enemy.tscn" id="5_337o5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq7n8"]
 size = Vector2(18, 89)
@@ -15,7 +17,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_bypo7")
 
 [node name="Player" parent="." instance=ExtResource("3_oopu7")]
-position = Vector2(121, 48)
+position = Vector2(-143, 0)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -35,6 +37,12 @@ polygon = PackedVector2Array(-89, -14, -131, 18, -136, 28, -146, 32, -138, 38, -
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world_transition_3"]
 position = Vector2(175, 36.5)
 shape = SubResource("RectangleShape2D_wq7n8")
+
+[node name="Ally_new" parent="." instance=ExtResource("4_hrm23")]
+position = Vector2(-133, -84)
+
+[node name="Enemy" parent="." instance=ExtResource("5_337o5")]
+position = Vector2(93, 63)
 
 [connection signal="body_entered" from="world_transition_3" to="." method="_on_world_transition_3_body_entered"]
 [connection signal="body_exited" from="world_transition_3" to="." method="_on_world_transition_3_body_exited"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d03gprqjnpw1p"]
+[gd_scene load_steps=7 format=3 uid="uid://d03gprqjnpw1p"]
 
 [ext_resource type="Texture2D" uid="uid://7i2fflcio2c5" path="res://art/underwater cave level 2.png" id="1_1d4r2"]
 [ext_resource type="Script" path="res://scripts/Level_2.gd" id="1_xqa2q"]
 [ext_resource type="PackedScene" uid="uid://ch162g7lbjb4v" path="res://scenes/player.tscn" id="3_0yyk7"]
+[ext_resource type="PackedScene" uid="uid://21q7b3ih3mvr" path="res://scenes/enemy.tscn" id="4_yhuee"]
+[ext_resource type="PackedScene" uid="uid://cse3ik44yfaod" path="res://scenes/ally_new.tscn" id="5_20q20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl07i"]
 size = Vector2(20, 58)
@@ -29,7 +31,7 @@ scale = Vector2(10, 10)
 polygon = PackedVector2Array(-165, 61, -138, 87, -113, 97, -77, 101, -56, 80, 28, 79, 43, 86, 65, 81, 77, 77, 101, 79, 109, 77, 121, 86, 140, 80, 156, 78, 162, 68, 165, 68, 165, 126, -164, 127)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collisions"]
-position = Vector2(20, 10)
+position = Vector2(180, 60)
 scale = Vector2(10, 10)
 polygon = PackedVector2Array(-37, -47, -38, -36, -37, -19, -36, -13, -49, -13, -49, -7, -49, 4, -50, 12, -57, 17, -60, 22, -61, 29, -55, 33, -42, 37, -34, 36, -21, 36, -6, 38, 14, 38, 28, 37, 33, 27, 39, 12, 50, 4, 55, -2, 48, -5, 30, -15, 34, -28, 42, -38, 37, -57, 29, -64, 8, -60, 1, -53, -13, -47, -24, -41, -32, -46)
 
@@ -42,6 +44,12 @@ polygon = PackedVector2Array(-166, -41, -109, -87, -68, -77, -36, -86, -22, -95,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world_transition_2"]
 position = Vector2(174, 11)
 shape = SubResource("RectangleShape2D_hl07i")
+
+[node name="Enemy" parent="." instance=ExtResource("4_yhuee")]
+position = Vector2(70, 63)
+
+[node name="Ally_new" parent="." instance=ExtResource("5_20q20")]
+position = Vector2(-82, -4)
 
 [connection signal="body_entered" from="world_transition_2" to="." method="_on_world_transition_2_body_entered"]
 [connection signal="body_exited" from="world_transition_2" to="." method="_on_world_transition_2_body_exited"]

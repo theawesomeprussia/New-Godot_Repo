@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwylq7ca118ep"]
+[gd_scene load_steps=7 format=3 uid="uid://bwylq7ca118ep"]
 
 [ext_resource type="Texture2D" uid="uid://dc7yu0w1es1lr" path="res://art/jungle temple level 1.png" id="1_gi0o7"]
 [ext_resource type="Script" path="res://scripts/Level_1.gd" id="1_rwovc"]
 [ext_resource type="PackedScene" uid="uid://ch162g7lbjb4v" path="res://scenes/player.tscn" id="2_n213y"]
+[ext_resource type="PackedScene" uid="uid://cse3ik44yfaod" path="res://scenes/ally_new.tscn" id="4_fom2a"]
+[ext_resource type="PackedScene" uid="uid://21q7b3ih3mvr" path="res://scenes/enemy.tscn" id="5_hof6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a288q"]
 size = Vector2(12, 41)
@@ -48,6 +50,12 @@ polygon = PackedVector2Array(0, -127, -13, -116, -12, -103, -16, -89, -25, -80, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world_transition_1"]
 position = Vector2(-171, 80.5)
 shape = SubResource("RectangleShape2D_a288q")
+
+[node name="Ally_new" parent="." instance=ExtResource("4_fom2a")]
+position = Vector2(-60, 33)
+
+[node name="Enemy" parent="." instance=ExtResource("5_hof6m")]
+position = Vector2(-60, 33)
 
 [connection signal="body_entered" from="world_transition_1" to="." method="_on_world_transition_1_body_entered"]
 [connection signal="body_exited" from="world_transition_1" to="." method="_on_world_transition_1_body_exited"]
