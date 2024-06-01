@@ -209,6 +209,7 @@ animation = &"Walk_down"
 offset = Vector2(0, -15)
 
 [node name="world_camera" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(0.7, 0.7)
 limit_left = 17
 limit_top = -95
@@ -220,8 +221,18 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Level_1_camera" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(0.7, 0.7)
+limit_left = -163
+limit_top = -127
+limit_right = 164
+limit_bottom = 124
 
 [node name="Level_2_camera" type="Camera2D" parent="."]
+limit_left = -165
+limit_top = -128
+limit_right = 166
+limit_bottom = 128
 
 [node name="Level_3_camera" type="Camera2D" parent="."]
+visible = false

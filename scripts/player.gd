@@ -73,14 +73,36 @@ func play_anim(movement):
 
 func current_camera():
 	if global.current_scene == "world":
-		$world_camera.enabled = false
-		$Level_1_camera.enabled = true
+		$world_camera.enabled = true
+		$Level_1_camera.enabled = false
+		$Level_2_camera.enabled = false
+		$Level_3_camera.enabled = false
+		
 	elif global.current_scene == "Level_1":
 		$world_camera.enabled = false
 		$Level_1_camera.enabled = true
+		$Level_2_camera.enabled = false
+		$Level_3_camera.enabled = false
+		
+	elif global.current_scene == "Level_2":
+		$world_camera.enabled = false
+		$Level_1_camera.enabled = false
+		$Level_2_camera.enabled = true
+		$Level_3_camera.enabled = false
+
+	elif global.current_scene == "Level_3":
+		$world_camera.enabled = false
+		$Level_1_camera.enabled = false
+		$Level_2_camera.enabled = false
+		$Level_3_camera.enabled = true
+
 	else:
 		$world_camera.enabled = true
 		$Level_1_camera.enabled = false
-		
-
+		$Level_2_camera.enabled = false
+		$Level_3_camera.enabled = false
+	
+func _ready():
+	var my_variable = global.current_scene
+	print(my_variable)
 

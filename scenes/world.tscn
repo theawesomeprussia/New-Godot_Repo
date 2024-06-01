@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxcx13o0vf0qj"]
+[gd_scene load_steps=15 format=3 uid="uid://cxcx13o0vf0qj"]
 
 [ext_resource type="Texture2D" uid="uid://2hpqmnlfrb4j" path="res://art/tilesets/plains.png" id="1_mvp42"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rm0tr"]
@@ -152,6 +152,12 @@ sources/2 = SubResource("TileSetAtlasSource_gajd7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr76q"]
 size = Vector2(30, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la6df"]
+size = Vector2(20, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlkre"]
+size = Vector2(29, 64)
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_rm0tr")
@@ -187,5 +193,21 @@ polygon = PackedVector2Array(17, -52, 17, -95, 273, -95, 273, -115, 303, -115, 3
 position = Vector2(288, -105)
 shape = SubResource("RectangleShape2D_hr76q")
 
+[node name="level_2_transition" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_2_transition"]
+position = Vector2(6, -24.5)
+shape = SubResource("RectangleShape2D_la6df")
+
+[node name="level_3_transition" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_3_transition"]
+position = Vector2(589.5, 81)
+shape = SubResource("RectangleShape2D_vlkre")
+
 [connection signal="body_entered" from="level_1_transition" to="." method="_on_level_1_transition_body_entered"]
 [connection signal="body_exited" from="level_1_transition" to="." method="_on_level_1_transition_body_exited"]
+[connection signal="body_entered" from="level_2_transition" to="." method="_on_level_2_transition_body_entered"]
+[connection signal="body_exited" from="level_2_transition" to="." method="_on_level_2_transition_body_exited"]
+[connection signal="body_entered" from="level_3_transition" to="." method="_on_level_3_transition_body_entered"]
+[connection signal="body_exited" from="level_3_transition" to="." method="_on_level_3_transition_body_exited"]

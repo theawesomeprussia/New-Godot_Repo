@@ -1,8 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://cruukm2ep5t7h"]
+[gd_scene load_steps=5 format=3 uid="uid://cruukm2ep5t7h"]
 
+[ext_resource type="Script" path="res://scripts/Level_3.gd" id="1_7qrim"]
 [ext_resource type="Texture2D" uid="uid://ns3jn01slmnn" path="res://art/lava red level 3.png" id="1_bypo7"]
+[ext_resource type="PackedScene" uid="uid://ch162g7lbjb4v" path="res://scenes/player.tscn" id="3_oopu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq7n8"]
+size = Vector2(18, 89)
 
 [node name="Level_3" type="Node2D"]
+script = ExtResource("1_7qrim")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_bypo7")
+
+[node name="Player" parent="." instance=ExtResource("3_oopu7")]
+position = Vector2(121, 48)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(-1670, -1290, -1670, 1280, 1660, 1290, 1660, 800, 1840, 800, 1840, -70, 1670, -80, 1670, -1310, -1660, -1300, -1410, -1430, 2000, -1430, 2000, 1410, -1850, 1410, -1850, -1370)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(-740, -960, -890, -840, -1040, -710, -1090, -570, -1110, -470, -1030, -420, -800, -430, -670, -430, -560, -340, -360, -240, -220, -130, -80, -20, 60, 80, 200, 190, 280, 300, 440, 320, 560, 320, 670, 320, 650, 160, 630, 70, 710, -30, 890, -130, 1040, -260, 1130, -410, 1160, -610, 1150, -750, 1060, -910, 1010, -1010, 880, -1120, 760, -1190, 650, -1220, 520, -1250, 340, -1270, 170, -1300, -20, -1260, -190, -1220, -290, -1180, -430, -1140, -490, -1090, -570, -1040, -650, -1000)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collisions"]
+scale = Vector2(10, 10)
+polygon = PackedVector2Array(-89, -14, -131, 18, -136, 28, -146, 32, -138, 38, -133, 47, -131, 55, -126, 63, -116, 68, -102, 69, -96, 77, -86, 82, -75, 79, -70, 78, -53, 82, -43, 90, -38, 91, -26, 95, -16, 99, -8, 102, 1, 104, 16, 104, 21, 104, 31, 103, 40, 95, 45, 92, 54, 81, 51, 74, 39, 73, 27, 73, 16, 69, 6, 65, -7, 60, -20, 50, -31, 40, -40, 31, -47, 23, -56, 10, -67, 1, -78, -5)
+
+[node name="world_transition_3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world_transition_3"]
+position = Vector2(175, 36.5)
+shape = SubResource("RectangleShape2D_wq7n8")
+
+[connection signal="body_entered" from="world_transition_3" to="." method="_on_world_transition_3_body_entered"]
+[connection signal="body_exited" from="world_transition_3" to="." method="_on_world_transition_3_body_exited"]
