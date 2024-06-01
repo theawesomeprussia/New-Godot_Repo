@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwylq7ca118ep"]
+[gd_scene load_steps=11 format=3 uid="uid://bwylq7ca118ep"]
 
 [ext_resource type="Script" path="res://scripts/Level_1.gd" id="1_rwovc"]
 [ext_resource type="Texture2D" uid="uid://3pgx8xjwyqeo" path="res://art/a04c50eb693480ad.png" id="2_81w8w"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://21q7b3ih3mvr" path="res://scenes/enemy.tscn" id="5_hof6m"]
 [ext_resource type="PackedScene" uid="uid://dulp08jcg38nx" path="res://scenes/coin_test1.tscn" id="6_xbotk"]
 [ext_resource type="PackedScene" uid="uid://llmc6gc6qa53" path="res://scenes/canvas_layer.tscn" id="7_bkv3x"]
+[ext_resource type="PackedScene" uid="uid://db2u7drtshbob" path="res://scenes/chest.tscn" id="8_2vyjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfua4"]
 size = Vector2(1063, 36)
@@ -187,6 +188,9 @@ position = Vector2(467, -213)
 position = Vector2(-22, -246)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_bkv3x")]
+
+[node name="Chest" parent="." instance=ExtResource("8_2vyjs")]
+position = Vector2(125, 362)
 
 [connection signal="body_entered" from="world_transition_1" to="." method="_on_world_transition_1_body_entered"]
 [connection signal="body_exited" from="world_transition_1" to="." method="_on_world_transition_1_body_exited"]

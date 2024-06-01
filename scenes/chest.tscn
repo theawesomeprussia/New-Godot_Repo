@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://db2u7drtshbob"]
+
+[ext_resource type="Script" path="res://Chest.gd" id="1_oe11s"]
+[ext_resource type="Texture2D" uid="uid://djkpgnr4vjl08" path="res://art/treasure.png" id="2_34bcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2n3u"]
+atlas = ExtResource("2_34bcw")
+region = Rect2(0, 0, 766, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tmh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2n3u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqqc7"]
+radius = 10.0499
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_oe11s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_7tmh4")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fqqc7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

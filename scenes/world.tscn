@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxcx13o0vf0qj"]
+[gd_scene load_steps=18 format=3 uid="uid://cxcx13o0vf0qj"]
 
 [ext_resource type="Texture2D" uid="uid://2hpqmnlfrb4j" path="res://art/tilesets/plains.png" id="1_mvp42"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rm0tr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cse3ik44yfaod" path="res://scenes/ally_new.tscn" id="6_oeysb"]
 [ext_resource type="PackedScene" uid="uid://dulp08jcg38nx" path="res://scenes/coin_test1.tscn" id="8_by26b"]
 [ext_resource type="PackedScene" uid="uid://llmc6gc6qa53" path="res://scenes/canvas_layer.tscn" id="9_vklm4"]
+[ext_resource type="PackedScene" uid="uid://db2u7drtshbob" path="res://scenes/chest.tscn" id="10_1jds8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5c0h"]
 texture = ExtResource("1_mvp42")
@@ -217,6 +218,9 @@ position = Vector2(523, 44)
 position = Vector2(362, 210)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_vklm4")]
+
+[node name="Chest" parent="." instance=ExtResource("10_1jds8")]
+position = Vector2(552, 218)
 
 [connection signal="body_entered" from="level_1_transition" to="." method="_on_level_1_transition_body_entered"]
 [connection signal="body_exited" from="level_1_transition" to="." method="_on_level_1_transition_body_exited"]
