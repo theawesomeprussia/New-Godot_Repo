@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 60
+var speed = 6
 var player = null
 var stop_distance = 30
 var animated_sprite = null
